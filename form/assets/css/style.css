@@ -1,0 +1,111 @@
+.contact_p {
+   font-size: 18px;
+   color: #c00000;
+   font-weight: 200;
+}
+
+footer {
+   background-color: rgb(42, 45, 81);
+   color: #fff;
+}
+
+footer a {
+   text-decoration: underline;
+   color: #fff;
+}
+
+.footer-links {}
+
+.footer-logo {
+   margin-top: 40px;
+}
+
+.disclaimer {
+   font-size: 11px;
+   margin-top: 20px;
+   padding: 10px 20px;
+   color: #d0d0d0;
+}
+
+.disclaimer a {
+   text-decoration: underline;
+}
+
+
+.form-control {
+   display: inline-block;
+}
+
+input+label {
+   display: inline-block;
+}
+
+.error {
+   color: red;
+}
+
+label.error {
+   margin-left: 6px;
+}
+
+.form-group {
+   margin-bottom: 8px;
+}
+
+.form-control {
+   width: 90%;
+}
+
+
+#thankyou {
+   width: 100%;
+   /*left: 30%;*/
+}
+
+#thankyou h1 {
+   font-size: 24px;
+   margin-bottom: 30px;
+}
+
+#thankyou .x-large {
+   font-size: 60px;
+   margin-bottom: 5px;
+}
+
+#thankyou p {
+   font-size: 18px;
+   word-spacing: 3px;
+}
+
+.bg-blue-drk {
+   background: rgb(42, 45, 81)
+}
+
+.navbar-header img {
+   width: 300px;
+   height: 36px;
+   margin-top: 7px;
+}
+
+.navbar-default .navbar-nav>li>a {
+   color: #eee;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+   color: #eee;
+   text-decoration: underline
+}
+
+.label_tcpa {
+   font-size: 12px;
+   color: #222;
+   line-height: 1.6
+}
+
+@media only screen and (max-width:991px) {
+   .footer-logo {
+      margin-top: 40px;
+      max-width: 200px;
+      display: inline-block
+   }
+}

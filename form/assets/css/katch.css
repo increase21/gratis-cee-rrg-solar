@@ -1,0 +1,483 @@
+/* @override http://www.solarathome.net/assets/css/katch.css */
+
+/* CSS Document */
+
+.vm-clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+ 
+`
+ 
+.vmDisplay span, .vmDisplay a{
+   font-family: Arial,Helvetica,sans-serif;
+  
+}
+ 
+.vm-section-a, .vm-section-b, .vm-section-c{
+   padding: 5px;
+}
+ 
+.vm-section-a, .vm-section-c{
+    position: absolute;
+    top: 0;
+}
+ 
+.vm-title a, .vm-snippet a, .vm-url a {
+    color: #000000;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: none;
+    
+
+}
+ 
+.vm-title, .vm-snippet, .vm-url{
+  padding:2px 0;
+      text-align: left !important;
+}
+ 
+/* -----------------------------------------
+   Container Styles
+----------------------------------------- */
+.vmDisplay{
+    background: none 0 0 repeat scroll rgba(82, 30, 12, 0);
+    margin: 0 auto;
+    padding: 20px;
+    max-width:800px;
+    min-width: 260px;
+    border-radius: 2px !important;
+}
+*:first-child+html .vmDisplay{
+    min-width: 400px;
+}
+.vmDisplay{
+    min-width: 400px \ ;
+}
+
+/* -----------------------------------------
+   Header Styles
+----------------------------------------- */
+#vm-header{
+  font-size:22px;
+  line-height:25px;
+}
+ 
+#vm-productst{
+    display: block;
+    text-align: center;
+}
+ 
+.vm-cta {
+    background:  transparent !important;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    height: 34px;
+    padding: 10px 0 0 0;
+}
+ 
+.vm-prod{
+    color: #f9c52a;
+    font-weight: bold;
+}
+ 
+/* -----------------------------------------
+   Listings Styles
+----------------------------------------- */
+#vm-container{
+  margin:20px 0 0 0;
+}
+ 
+.vm-item {
+    margin: 0 0 5px;
+    position: relative;
+    /*background-color: #f4e8d2;*/
+    background-color: rgba(255, 255, 255, .9);
+    border-radius: 2px !important;
+    
+}
+ 
+.vm-border-before{
+    border: 0px solid #C0C0C0;
+    
+    
+}
+ 
+.vm-border-after{
+padding: 5px;
+    border: 0px solid #FEFAB6 !important;
+    min-height: 135px;
+    border-radius: 3px !important;
+}
+ 
+.vm-item:hover .vm-border-after{
+    background-color: rgba(255, 255, 255, 1);
+    transition: background-color 0.5s ease;
+    border-radius: 2px !important;
+}
+ 
+/*fix ie6*/
+* html .vm-border-after{
+    height: 135px;
+}
+ 
+/*SECTION A*/
+.vm-section-a {
+    left: 0;
+}
+
+/*Bullet*/
+.vm-bullet {
+    background: transparent !important;
+    height: 31px;
+    position: relative;
+    width: 35px;
+}
+ 
+.vm-bullet span {
+    color: #f9c52a;
+    font-size: 13px;
+    font-weight: bold;
+    left: 13px;
+    position: absolute;
+    text-shadow: 0 1px 0 #FFFFFF;
+    top: 8px;
+}
+ 
+.vm-item:hover .vm-bullet {
+    background-position: 0 -32px;
+    color: #7C3B01 !important;
+    
+}
+ 
+/*SECTION B*/
+.vm-section-b{
+    margin: 10px 180px 0 45px;
+    position:relative;
+}
+ 
+/*fix ie6*/
+* html .vm-section-b{
+  margin-left: 60px !important;
+}
+ 
+/*Title*/
+.vm-title a{
+    color: #3770cf;
+    font-size: 19px;
+    line-height: 18px;
+    
+}
+ 
+/*Snippet*/
+.vm-snippet-item{
+    background: url("http://cdn.katch.com/p/ly/mv/listing/mv_generic_02/images/vm-list.png") no-repeat scroll left 6px transparent;
+    padding: 0 0 0 13px;
+        text-align: left !important;
+}
+ 
+/*Url*/
+.vm-url a{
+    color: #2E5C03;
+    font-size: 11px;
+}
+ 
+/*SECTION C*/
+.vm-section-c{
+    right: 0;
+}
+ 
+/*fix ie6*/
+* html .vm-section-c{
+    right: 25px;
+    top: 3px;
+}
+ 
+/*Logo*/
+.vm-logo{
+    background: url("http://cdn.katch.com/p/ly/mv/listing/mv_generic_02/images/vm-frame-logo.png") no-repeat scroll 0 0 transparent;
+    width: 172px;
+}
+ 
+.vm-logo a{
+    display: block;
+    height: 78px;
+    width: 171px;
+}
+ 
+.vm-logo a img{
+    border: medium none;
+    margin: 7px 0 0 23px;
+}
+ 
+/*Quotes*/
+.vm-quotes{
+    margin-top: 8px;
+    margin-left: 2px;
+}
+ 
+.vm-quotes a{
+    background: url("http://www.solarathome.net/assets/img/vm-btn-bl.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 40px;
+    width: 169px;
+}
+ 
+.vm-item:hover .vm-quotes a{
+	background: url("http://www.solarathome.net/assets/img/vm-btn-yl.png") no-repeat scroll 0 0 transparent;
+    transition: background 0.4s ease;
+}
+ 
+/*bottom*/
+.vm-bottom{
+    height: 0;
+}
+ 
+.vm-corner-left, .vm-corner-right{
+    height: 10px;
+    width: 100px;
+}
+ 
+.vm-corner-left {
+    background: none !important;
+    float: left;
+	display: none;
+}
+ 
+.vm-corner-right {
+    background: none !important;
+    float: right;
+	display: none;
+}
+ 
+/* -----------------------------------------
+   Mobile Styles
+----------------------------------------- */
+/*shared styles*/
+.vm-mobile,
+.vm-mob-section-a,
+.vm-mob-section-b,
+.vm-mob-logo,
+.vm-mob-title,
+.vm-mob-quotes,
+.vm-mob-logo{
+  margin: 0;
+  padding:0;
+}
+ 
+.vm-mobile{
+   display:none;
+   padding-top: 5px;
+}
+ 
+.vm-mob-section-a, .vm-mob-section-b{
+   float:left;
+}
+ 
+.vm-mob-section-a{
+   width:42%;
+   text-align: center;
+}
+ 
+.vm-mob-section-b{
+   width:57%;
+}
+ 
+.vm-mob-logo{
+   padding-top: 20px;
+}
+ 
+.vm-mob-logo a{
+   display: block;
+}
+ 
+.vm-mob-logo a img{
+   border: 1px solid #CCC;
+}
+ 
+.vm-mob-title,.vm-mob-quotes{
+    margin:0 0 5px 0;
+}
+ 
+.vm-mob-title a{
+    font: 12px/14px Arial,Helvetica,sans-serif;
+    text-decoration: none;
+    color: #1245AD;
+    font-weight:bold;
+}
+ 
+.vm-mob-quotes a{
+    background: url("http://cdn.katch.com/p/ly/mv/listing/mv_generic_02/images/vm-btn-mob.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 31px;
+    width: 130px;
+}
+ 
+.vm-item:hover .vm-mob-quotes a{
+    background-position: 0 -31px;
+}
+ 
+.vm-mob-logo a img {
+    width: 90px;
+}
+ 
+/* -----------------------------------------
+   Visited Styles
+----------------------------------------- */
+.vm-visited .vm-title a,
+.vm-visited .vm-snippet a,
+.vm-visited .vm-snippet-item,
+.vm-visited .vm-url a,
+.vm-visited .vm-quotes a,
+.vm-visited .vm-logo a,
+.vm-visited .vm-mob-title a{
+    color: #CCC !important;
+    cursor:default !important;
+}
+ 
+.vm-visited .vm-quotes a, .vm-visited .vm-mob-quotes a{    
+    zoom: 1;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+    filter: alpha(opacity=40);
+    -moz-opacity: 0.4;
+    -khtml-opacity: 0.4;
+    opacity: 0.4;
+}
+
+.vm-visited .vm-logo {
+       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60);
+  -moz-opacity: 0.6;
+  -khtml-opacity: 0.6;
+  opacity: 0.6;
+}
+
+.vm-visited .vm-quotes a{
+  background: url("http://cdn.katch.com/p/ly/mv/listing/mv_generic_02/images/vm-btn-checked.png") no-repeat scroll 0 0 !important;
+}
+
+.vm-visited .vm-mob-quotes a{
+  background: url("http://cdn.katch.com/p/ly/mv/listing/mv_generic_02/images/vm-btn-mob-checked.png") no-repeat scroll 0 0 !important;  
+}
+
+ 
+.vm-visited .vm-snippet-item{
+    background: url("http://cdn.katch.com/p/ly/mv/listing/mv_generic_02/images/vm-list-off.png") no-repeat scroll left 6px transparent;
+}
+ 
+* html .vm-visited .vm-quotes a{
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src = '//cdn.katch.com/p/ly/mv/listing/mv_generic_02/images/vm-btn-checked.png', sizingMethod = 'scale');
+}
+ 
+.vm-item.vm-visited:hover .vm-bullet {
+    background: url("http://cdn.katch.com/p/ly/mv/listing/mv_generic_02/images/vm-bullet.png") no-repeat scroll 0 0 transparent;
+    color: #717171 !important;
+}
+ 
+.vm-item.vm-visited:hover .vm-item-border{
+    background-color:#FFF;
+}
+
+/* -----------------------------------------
+   Styles Phone
+----------------------------------------- */
+.vm-call-number{
+    background: url(http://cdn.katch.com/p/ly/mv/listing/mv_generic_02/images/vm-phone.png) no-repeat 10px center #fcf1a2;
+    border:none;
+    -webkit-border-radius: 70px;
+    -moz-border-radius: 70px;
+    border-radius: 70px;
+    padding: 3px 3px 3px 30px;
+    /*width: 130px;*/
+    width: 95px;
+    margin-top: 5px;
+}
+
+.vm-call-number a {
+    font-family: Arial,Helvetica,sans-serif;
+    text-decoration: none;
+    color: #114388;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/*Visited*/
+.vm-visited .vm-call-number a,
+.vm-call-visited .vm-call-number a{
+    color: #CCC !important;
+    cursor:default !important;
+}
+
+.vm-visited .vm-call-number,
+.vm-call-visited .vm-call-number{
+    background: url(http://cdn.katch.com/p/ly/mv/listing/mv_generic_02/images/vm-phone-visited.png) no-repeat 10px center #ebebeb !important;
+} 
+/* -----------------------------------------
+   Media Query Styles
+----------------------------------------- */
+@media screen and (max-width: 768px) {
+  .vm-mobile{
+    display: none;
+  }
+  .vm-cta{
+    font-size: 16px;
+  }
+}
+ 
+@media screen and (max-width: 650px) {
+  .vmDisplay{
+     padding: 10px;
+  }
+  #vm-container{
+    margin-top: 15px;
+  }
+  .vm-cta{
+    font-size: 13px;
+  }
+  #vm-productst{
+    font-size:17px;
+  }
+}
+ 
+@media screen and (max-width: 480px) {
+   .vm-cta, .vm-section-a{
+     display:none;
+   }
+   #vm-container{
+    margin-top: 5px;
+  }
+  .vm-section-b{
+    margin-left:5px;
+  }
+  .vm-title a{
+    font-size: 16px;
+  }
+  #vm-productst{
+    height:auto;
+    line-height: 20px;
+  }
+  .vm-item-border{
+    min-height: 100px;
+  }
+}
+ 
+@media screen and (max-width:380px) {
+   .vm-cta, .vm-desktop{
+     display:none;
+   }
+   .vm-mobile{
+   display:block;
+    }
+}
+ 
+@media screen and (max-width: 320px) {
+  #vm-productst{
+    font-size: 15px;
+  }
+}
+ 
+@media screen and (max-width: 240px) {
+ 
+}

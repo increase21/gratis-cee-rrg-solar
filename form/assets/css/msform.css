@@ -1,0 +1,321 @@
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {
+   margin: 0;
+   padding: 0;
+}
+
+html {
+   height: 100%;
+   /*Image only BG fallback*/
+
+   /*background = gradient + image pattern combo*/
+   /*background: 
+		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));*/
+}
+
+body {
+   font-family: montserrat, arial, verdana;
+}
+
+/*form styles*/
+
+
+form p {
+   color: #645f5b;
+   font-size: 14px;
+   margin: 0 0 20px 0;
+   font-weight: 300;
+   line-height: 18px;
+}
+
+
+#msform {
+   margin: 0 auto;
+   text-align: center;
+   position: relative;
+   /*
+	background-color: rgba(255, 255, 255, .7);
+	box-shadow: 0px 5px 10px rgba(0,0,0,.3);
+	padding: 20px;
+	*/
+   padding: 0;
+   overflow: hidden;
+
+}
+
+#msform fieldset {
+   /*background: rgba(255, 255, 255, .4);*/
+   border: 0 none;
+   border-radius: 0;
+   /*box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.4);*/
+   /*padding: 0 30px;*/
+   box-sizing: border-box;
+   width: 80%;
+   margin: 0 10%;
+
+   /*stacking fieldsets above each other*/
+   /*position: relative;*/
+   position: relative;
+   left: 0;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+   display: none;
+}
+
+/*buttons*/
+/* #3d81f4; */
+#msform .action-button {
+   width: 100px;
+   background: #87b94e;
+   font-weight: bold;
+   color: white;
+   border: 0 none;
+   border-radius: 3px;
+   cursor: pointer;
+   padding: 15px 15px;
+   margin: 10px 5px;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+   /*box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;*/
+   /*box-shadow: 0 0 0 2px white, 0 0 0 3px #3d81f4;*/
+   background-color: #4d8bf4;
+}
+
+/*headings*/
+#msform .fs-title {
+   font-size: 18px;
+   text-transform: uppercase;
+   color: #2C3E50;
+   margin-bottom: 20px;
+}
+
+#msform .fs-title:after {
+   content: "";
+   border-bottom: 1px dotted #000;
+
+}
+
+
+
+#msform .fs-subtitle {
+   font-weight: normal;
+   font-size: 13px;
+   color: #666;
+   margin-bottom: 20px;
+   background-color: transparent;
+   border-bottom: 0px solid #333;
+}
+
+/*progressbar*/
+#msform #progressbar {
+   margin: 30px 0 10px 0;
+   overflow: hidden;
+   /*CSS counters to number the steps*/
+   counter-reset: step;
+}
+
+#msform #progressbar li {
+   list-style-type: none;
+   color: white;
+   text-transform: uppercase;
+   font-size: 9px;
+   width: 50%;
+   float: left;
+   position: relative;
+}
+
+#msform #progressbar li:before {
+   content: counter(step);
+   counter-increment: step;
+   width: 40px;
+   line-height: 40px;
+   display: block;
+   font-size: 12px;
+   color: #333;
+   background: white;
+
+   border-radius: 30px;
+   margin: 0 auto 5px auto;
+}
+
+/*progressbar connectors*/
+#msform #progressbar li:after {
+   content: '';
+   width: 100%;
+   height: 6px;
+   background: white;
+   position: absolute;
+   left: -50%;
+   top: 17px;
+   z-index: -1;
+   /*put it behind the numbers*/
+}
+
+#msform #progressbar li:first-child:after {
+   /*connector not needed before the first step*/
+   content: none;
+}
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#msform #progressbar li.active:before,
+#progressbar li.active:after {
+   /*	background: #27AE60;*/
+   background: #6da559;
+   color: white;
+}
+
+
+
+/*
+#msform .form-control{
+	background-color: rgba(141, 103, 81, .7);
+	border: 1px solid rgba(141, 103, 81, .3);
+	height: 34px;
+	color: #fff;
+	
+}
+
+
+#msform .form-control::-moz-placeholder{color:#fff;opacity:1}.form-control:-ms-input-placeholder{color:#fff}.form-control::-webkit-input-placeholder{color:#fff}
+
+
+#msform select{
+	background: url("/assets/img/arrow-gray-dual.png") right 15px top 15px no-repeat  rgba(255, 255, 255, 1);
+	border: 1px solid rgba(141, 103, 81, .3);
+	width: 100%;
+	color: #f;
+	-webkit-appearance:none;
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #999;
+	font-size: 13px;
+}
+*/
+
+
+
+
+
+/* RAISED BUTTONS *!/*/
+
+#msform .btn-primary.raised {
+   box-shadow: 0 3px 0 0 #285fbd;
+}
+
+#msform .btn-primary.raised:active,
+#msform .btn-primary.raised.active {
+   background: #3d81f4;
+   box-shadow: none;
+   margin: 18px 0 -3px 0;
+}
+
+/* CUSTON BTN VALUES */
+
+#msform .btn {
+   padding: 22px 24px;
+   border: 0 none;
+   font-weight: 700;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   width: 100%;
+   margin: 15px 0 0 0;
+   font-size: 20px;
+
+}
+
+#msform .btn:focus,
+.btn:active:focus,
+#msform .btn.active:focus {
+   outline: 0 none;
+}
+
+#msform .btn-primary {
+   background: #3675e0;
+   color: #ffffff;
+}
+
+#msform .btn-primary:hover,
+#msform .btn-primary:focus,
+#msform .btn-primary:active,
+#msform .btn-primary.active,
+#msform .open>.dropdown-toggle.btn-primary {
+   background: #3d81f4;
+}
+
+#msform .btn-primary:active,
+#msform .btn-primary.active {
+   background: #007299;
+   box-shadow: none;
+}
+
+/*
+#msform input[type=radio], #msform input[type=checkbox] {
+		display:none;
+	}
+
+#msform input[type=radio] + label, #msform input[type=checkbox] + label {
+		display:inline-block;
+		padding: 4px 12px;
+		margin-bottom: 10px;
+		line-height: 35px;
+		color: #999;
+		text-align: l;
+		vertical-align: middle;
+		cursor: pointer;
+		background-color: #f5f5f5;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		font-family: montserrat;
+		font-weight: 500;
+		background-color: #fff;
+		background-repeat: repeat-x;
+		border: 1px solid #ccc;
+		/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+		filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+		-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+		-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+		box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+	}
+
+	 #msform input[type=radio]:checked + label, #msform input[type=checkbox]:checked + label{
+		   background-image: none;
+		outline: 0;
+		-webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+		-moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+		box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+			background: #ad8870;
+			color: #fff;
+			border: 1px solid #ad8870;
+			
+	}
+	#msform .radioquestion{
+		margin: 20px 0 10px 0;
+		display: inline-block;
+		width: 100%;
+		color: #999;
+	}
+*/
+#msform .r {
+   float: right !important;
+   width: 49% !important;
+
+
+}
+
+#msform .l {
+   float: left !important;
+   width: 49% !important;
+}
