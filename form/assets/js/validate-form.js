@@ -83,18 +83,45 @@ $('#submitButton').on('click', async (e) => {
    e.preventDefault()
    e.stopImmediatePropagation()
 
-   // async function DoSignup(form) {
-
-   // Validate the form 1 last time
-   //formValidation = $('#enrollForm1').data('formValidation');
    enrollForm1 = $('#msform');
 
    enrollForm1.validate();
 
    if (enrollForm1.valid()) {
       $('#submitButton').prop('disabled', true)
-      // DO IP LOOKUP BEFORE SUBMITTING THE FORM
-      // Do IP Address Lookup
+      // DO IP LOOKUP ON ZIP CODE BEFORE SUBMITTING
+      let zip = $("#zip").val().trim()
+      let domainR = ['127.0.0', 'localhost'].indexOf(location.origin) > -1 ? "/_vanila/gratis/solar-high-others/zipcode.php" : "/zipcode.php"
+      $.ajax({
+         url: domainR,
+         method: "POST",
+         data: `zip=${zip}`
+      }).done(e => {
+         return console.log(e)
+         if (e.status === "yes") {
+            SendLead(true, null) //send to Highrolers
+         } else {
+            SendLead(null, true) //send to rgr 
+         }
+      })
+   }
+   else {
+      $('html, body').animate({
+         scrollTop: $('.error').first().offset().top - 120
+      }, 500);
+      $('.error').first().find('input').focus();
+   }
+})
+
+// close the modal once the close btn is clicked
+$('body').on('click', '.modal-btn', function () {
+   window.close()
+})
+
+
+const SendLead = async (highRoller, RGR) => {
+   // Do IP Address Lookup
+   if (RGR && RGR === true) {
       let userIp = await $.getJSON('https://api.ipdata.co/?api-key=d4b2ec5cd9239b7b126259f0b012f352754ba15ad2ab4e61f23cf748');
       // get the Leadid
       let Leadid = $('#leadid_token').val()
@@ -104,61 +131,68 @@ $('#submitButton').on('click', async (e) => {
       var url = "https://gratisdigital.listflex.com/lmadmin/api/leadimport.php?";
       // get all the form inputs
       // Live Params
-      let formData = $('#msform').serialize();
+      var formData = $('#msform').serialize();
       formData += `&apikey=JMNCAVYJ2A47D8V9DPX5&list_id=1696&cust_field_116=${Leadid}&ip=${userIp.ip}&city=${userIp.city}&state=${userIp.region_code}&offer=${originURL}`
       // Test Params
       // formData += `&apikey=P7IYXSYHAIFMBQ94FPD&list_id=1697&cust_field_116=${Leadid}&ip=${userIp.ip}&city=${userIp.city}&state=${userIp.region_code}&offer=${originURL}`
       // append the form input with the url
-      let callUrl = url + formData
+      var RGRURL = url + formData
       // Fire Facebook Pixel for registration
-      dataLayer.push({ 'event': 'CompleteRegistration' });
-      // submit to the database
-      $.ajax({
-         type: "GET",
-         url: callUrl,
-         // dataType: 'json',
-         beforeSend: function () {
-            // Disable the button and Open the Modal dialog to show Processing....
-            $('#signupButton').attr('disabled', 'disabled');
-            $('#modalProcessing').modal({ backdrop: 'static', keyboard: false });
+   } else if (highRoller && highRoller === true) {
+      let fname = $("#firstName").val().trim()
+      let lname = $("#lastName").val().trim()
+      let email = $("#email").val().trim()
+      let phone = $("#phonePrimary").val().trim()
+      let addr = $("#address").val().trim()
+      let zip = $("#zip").val().trim()
+      var formData = `fname=${fname}&lname=${lname}&email=${email}&phone=${phone}&addr=${addr}&zip=${zip}`
+      var highRollerURL = 'https://hooks.zapier.com/hooks/catch/2128931/oi3swwa'
+   } else {
+      return
+   }
+
+   dataLayer.push({ 'event': 'CompleteRegistration' });
+   // data to send out
+   let sendData = {
+      type: highRoller ? "POST" : "GET",
+      url: highRoller ? highRollerURL : RGRURL,
+      // dataType: 'json',
+      beforeSend: function () {
+         // Disable the button and Open the Modal dialog to show Processing....
+         $('#signupButton').attr('disabled', 'disabled');
+         $('#modalProcessing').modal({ backdrop: 'static', keyboard: false });
+      }
+   }
+   // add the form data if high rollers
+   if (highRoller === true) {
+      sendData.data = formData
+   }
+   // submit to the database
+   $.ajax(sendData)
+      .done(function (data) {
+         if (data === 'Success' || data.status === "success") {
+            $('.modal-dynamic-content').html(textSuccess)
+         } else {
+            $('.modal-dynamic-content').html(textFail)
          }
       })
-         .done(function (data) {
-            console.log(data)
-            if (data == 'Success') {
-               $('.modal-dynamic-content').html(textSuccess)
-            } else {
-               $('.modal-dynamic-content').html(textFail)
-            }
-         })
-         .fail(function (jqXHr, textStatus, errorThrown) {
-            // show an error message
-            $('#modalProcessing').modal('toggle');
-            $('#errorContainer').css('display', 'block');
-            $('#errorMessage').html('We\'re sorry, an error occurred. Please try again in a few minutes.');
-         })
-         .always(function () {
-            //console.log('Always');
-            $('#signupButton').removeAttr('disabled');
-         });
-   }
-   else {
-      // console.log('form not validated!');
-      $('html, body').animate({
-         scrollTop: $('.error').first().offset().top - 120
-      }, 500);
-      $('.error').first().find('input').focus();
-   }
-})
-// close the modal once the close btn is clicked
-$('body').on('click', '.modal-btn', function () {
-   window.close()
-})
+      .fail(function (jqXHr, textStatus, errorThrown) {
+         // show an error message
+         $('#modalProcessing').modal('toggle');
+         $('#errorContainer').css('display', 'block');
+         $('#errorMessage').html('We\'re sorry, an error occurred. Please try again in a few minutes.');
+      })
+      .always(function () {
+         $('#signupButton').removeAttr('disabled');
+      });
+}
 
+// for success message
 const textSuccess = `<div><h2 class="green-text">THANK YOU FOR YOUR REQUEST</h2>
       <h4 class="mt-3">One of our agents will contact your shortly</h4>
       <p><button class="btn mt-2 bg-green white-text modal-btn">Close</button>
       </div>`
+// for error message
 const textFail = `<div><h2 class="red-text">Oops!</h2>
       <h4 class="mt-3">Something went wrong with your submission, try again</h4>
       <p><button class="btn mt-2 bg-red modal-btn">Try Again</button>
