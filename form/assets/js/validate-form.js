@@ -97,7 +97,6 @@ $('#submitButton').on('click', async (e) => {
          method: "POST",
          data: `zip=${zip}`
       }).done(e => {
-         return console.log(e)
          if (e.status === "yes") {
             SendLead(true, null) //send to Highrolers
          } else {
