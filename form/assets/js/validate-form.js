@@ -91,7 +91,7 @@ $('#submitButton').on('click', async (e) => {
       $('#submitButton').prop('disabled', true)
       // DO IP LOOKUP ON ZIP CODE BEFORE SUBMITTING
       let zip = $("#zip").val().trim()
-      let domainR = ['127.0.0', 'localhost'].indexOf(location.origin) > -1 ? "/_vanila/gratis/solar-high-others/zipcode.php" : "/zipcode.php"
+      let domainR = ['127.0.0', 'localhost'].indexOf(location.origin) > -1 ? "/_vanila/gratis/solar-high-others/zipcode.php" : "/rgr-solar/zipcode.php"
       $.ajax({
          url: domainR,
          method: "POST",
